@@ -7,13 +7,22 @@ workspace(name = "tf_serving")
 #    and update the 'sha256' arg with the result.
 # 3. Request the new archive to be mirrored on mirror.bazel.build for more
 #    reliable downloads.
-load("//tensorflow_serving:repo.bzl", "tensorflow_http_archive")
 
-tensorflow_http_archive(
+
+#load("//tensorflow_serving:repo.bzl", "tensorflow_http_archive")
+
+#tensorflow_http_archive(
+#    name = "org_tensorflow",
+#    sha256 = "72764305b8cd2909ee31da165ea8f6d70c4e514c3ad9ceb297f6745c09436009",
+#    git_commit = "56d7ad1ed931d0a63d7cc9baa8e4110aa68c8b60",
+#)
+
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+git_repository(
     name = "org_tensorflow",
-    sha256 = "72764305b8cd2909ee31da165ea8f6d70c4e514c3ad9ceb297f6745c09436009",
-    git_commit = "56d7ad1ed931d0a63d7cc9baa8e4110aa68c8b60",
-)
+    branch = "master",
+    remote = "http://github.com/grapefruitL/tensorflow.git",
+)	)
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
