@@ -22,7 +22,7 @@ git_repository(
     name = "org_tensorflow",
     branch = "master",
     remote = "http://github.com/grapefruitL/tensorflow.git",
-)	)
+)
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
